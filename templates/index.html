@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz de Matemática</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📚 Quiz de Matemática</h1>
+
+    <form action="/resultado" method="POST">
+
+        {% for questao in questoes %}
+
+        <div class="card">
+
+            <h3>{{ questao.pergunta }}</h3>
+
+            {% set questao_id = loop.index0 %}
+
+            {% for alternativa in questao.alternativas %}
+
+            <label>
+                <input
+                    type="radio"
+                    name="questao{{ questao_id }}"
+                    value="{{ alternativa }}"
+                    required
+                >
+                {{ alternativa }}
+            </label>
+
+            <br>
+
+            {% endfor %}
+
+        </div>
+
+        {% endfor %}
+
+        <button type="submit">
+            Enviar Respostas
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

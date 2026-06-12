@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado</title>
+</head>
+<body>
+
+    <h1>🎯 Resultado Final</h1>
+
+    <h2>Você acertou {{ pontos }} de {{ total }} questões</h2>
+
+    <h3>Aproveitamento: {{ percentual }}%</h3>
+
+    {% if percentual == 100 %}
+    <p>🌟 Parabéns! Você acertou tudo!</p>
+{% elif percentual >= 80 %}
+    <p>🏆 Excelente desempenho!</p>
+{% elif percentual >= 60 %}
+    <p>👍 Bom trabalho!</p>
+{% elif percentual >= 40 %}
+    <p>📖 Você está aprendendo. Continue praticando!</p>
+{% else %}
+    <p>📚 Estude um pouco mais e tente novamente.</p>
+{% endif %}
+
+    <a href="/">Refazer Quiz</a>
+
+</body>
+</html>
